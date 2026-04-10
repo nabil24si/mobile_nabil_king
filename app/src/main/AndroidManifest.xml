@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Nabilking">
         <activity
+            android:name="NabilApps.PagetwoActivity"
+            android:exported="false" />
+        <activity
+            android:name="NabilApps.PageoneActivity"
+            android:exported="false" />
+        <activity
+            android:name="NabilApps.PageOneActivity"
+            android:exported="false" />
+        <activity
             android:name="NabilApps.DashboardActivity"
             android:exported="false" />
         <activity

@@ -14,6 +14,31 @@
         android:background="@drawable/header_bg"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/btnLogout"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="20dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="8dp"
+        android:src="@android:drawable/ic_lock_power_off"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/tvLogoutLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btnLogout"
+        app:layout_constraintStart_toStartOf="@+id/btnLogout"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogout" />
+
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/profileImage"
         android:layout_width="80dp"
@@ -33,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Welcome, Nabil Sahendra"
+        android:text="Welcome, User"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -59,7 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
-        android:text="Daily Task List"
+        android:text="Menu Utama"
         android:textColor="#333333"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -68,16 +93,15 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="24dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTaskLabel">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -89,7 +113,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Your Progress"
+                    android:text="Pilih Materi/Informasi"
                     android:textColor="#59C1C9"
                     android:textStyle="bold" />
 
@@ -97,30 +121,44 @@
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:layout_alignParentEnd="true"
-                    android:src="@android:drawable/ic_input_add"
+                    android:src="@android:drawable/ic_menu_sort_by_size"
                     app:tint="#59C1C9" />
             </RelativeLayout>
 
-            <CheckBox
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnRuang"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="Siapkan perlengkapan sekolah"
-                android:buttonTint="#59C1C9" />
+                android:layout_height="55dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/button_bg"
+                android:text="Halaman Bangun Ruang"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-            <CheckBox
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnInfo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="Cek jadwal pelajaran besok"
-                android:buttonTint="#59C1C9" />
+                android:layout_height="55dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/button_bg"
+                android:text="Informasi Aplikasi"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-            <CheckBox
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnDeveloper"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="Beri afirmasi positif ke anak"
-                android:buttonTint="#59C1C9" />
+                android:layout_height="55dp"
+                android:background="@drawable/button_bg"
+                android:text="Profil Pengembang"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

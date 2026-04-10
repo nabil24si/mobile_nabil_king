@@ -1,41 +1,69 @@
-package com.example.nabil_king // Sesuaikan dengan package name anda
+package com.example.nabil_king
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.nabil_king.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    // 1. Deklarasi View Binding
+    private lateinit var binding: ActivityMainBinding
+    private val TAG = "MainBangunLifecycle"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        Log.d(TAG, "onCreate: Activity Bangun Datar/Ruang Dibuat")
 
-        // Inisialisasi View Bangun Datar
-        val etPanjang = findViewById<EditText>(R.id.etPanjang)
-        val etLebar = findViewById<EditText>(R.id.etLebar)
-        val btnHitungLuas = findViewById<Button>(R.id.btnHitungLuas)
-        val tvHasilLuas = findViewById<TextView>(R.id.tvHasilLuas)
+        // 2. Inisialisasi View Binding
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        // Inisialisasi View Bangun Ruang
-        val etSisi = findViewById<EditText>(R.id.etSisi)
-        val btnHitungVolume = findViewById<Button>(R.id.btnHitungVolume)
-        val tvHasilVolume = findViewById<TextView>(R.id.tvHasilVolume)
-
-        // Logika Hitung Luas Persegi Panjang (P x L)
-        btnHitungLuas.setOnClickListener {
-            val panjang = etPanjang.text.toString().toDoubleOrNull() ?: 0.0
-            val lebar = etLebar.text.toString().toDoubleOrNull() ?: 0.0
+        // --- Logika Hitung Luas Persegi Panjang ---
+        binding.btnHitungLuas.setOnClickListener {
+            val panjang = binding.etPanjang.text.toString().toDoubleOrNull() ?: 0.0
+            val lebar = binding.etLebar.text.toString().toDoubleOrNull() ?: 0.0
             val hasil = panjang * lebar
-            tvHasilLuas.text = "Hasil Luas: $hasil"
+            binding.tvHasilLuas.text = "Hasil Luas: $hasil"
         }
 
-        // Logika Hitung Volume Kubus (S x S x S)
-        btnHitungVolume.setOnClickListener {
-            val sisi = etSisi.text.toString().toDoubleOrNull() ?: 0.0
+        // --- Logika Hitung Volume Kubus ---
+        binding.btnHitungVolume.setOnClickListener {
+            val sisi = binding.etSisi.text.toString().toDoubleOrNull() ?: 0.0
             val hasil = sisi * sisi * sisi
-            tvHasilVolume.text = "Hasil Volume: $hasil"
+            binding.tvHasilVolume.text = "Hasil Volume: $hasil"
         }
+
+        // --- Tombol Kembali ke Dashboard ---
+        binding.btnBackToDashboard.setOnClickListener {
+            finish() // Menutup activity ini dan kembali ke sebelumnya
+        }
+    }
+
+    // --- Implementasi Lifecycle Activity ---
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart: Activity Mulai Terlihat")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume: Activity Siap Berinteraksi")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause: Activity Dijeda")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop: Activity Berhenti")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy: Activity Dihancurkan")
     }
 }
