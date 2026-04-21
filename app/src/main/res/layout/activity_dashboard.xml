@@ -108,13 +108,15 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:text="Pilih Materi/Informasi"
                     android:textColor="#59C1C9"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <ImageView
@@ -131,7 +133,21 @@
                 android:layout_height="55dp"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/button_bg"
+                android:elevation="4dp"
                 android:text="Halaman Bangun Ruang"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnBina"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/button_bg"
+                android:elevation="4dp"
+                android:text="Halaman Bina Desa"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
@@ -143,6 +159,7 @@
                 android:layout_height="55dp"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/button_bg"
+                android:elevation="4dp"
                 android:text="Informasi Aplikasi"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
@@ -154,6 +171,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:background="@drawable/button_bg"
+                android:elevation="4dp"
                 android:text="Profil Pengembang"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"

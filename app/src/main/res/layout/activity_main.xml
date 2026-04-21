@@ -1,92 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:id="@+id/mainBangun"> <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Luas Persegi Panjang"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/etPanjang"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Masukkan Panjang"
-        android:inputType="numberDecimal" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/etLebar"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarMain"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#59C1C9"
+            app:title="Hitung Bangun Ruang"
+            app:titleTextColor="#FFFFFF" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:id="@+id/mainBangun"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Masukkan Lebar"
-        android:inputType="numberDecimal" />
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
-    <Button
-        android:id="@+id/btnHitungLuas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hitung Luas" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvHasilLuas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hasil Luas: 0"
-        android:textSize="16sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Luas Persegi Panjang"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginVertical="20dp"
-        android:background="#CCCCCC" />
+            <EditText
+                android:id="@+id/etPanjang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Masukkan Panjang"
+                android:inputType="numberDecimal" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Volume Kubus"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+            <EditText
+                android:id="@+id/etLebar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Masukkan Lebar"
+                android:inputType="numberDecimal" />
 
-    <EditText
-        android:id="@+id/etSisi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Masukkan Sisi"
-        android:inputType="numberDecimal" />
+            <Button
+                android:id="@+id/btnHitungLuas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Hitung Luas" />
 
-    <Button
-        android:id="@+id/btnHitungVolume"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hitung Volume" />
+            <TextView
+                android:id="@+id/tvHasilLuas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Hasil Luas: 0"
+                android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/tvHasilVolume"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hasil Volume: 0"
-        android:textSize="16sp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginVertical="20dp"
+                android:background="#CCCCCC" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnBackToDashboard"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/button_bg"
-        android:text="Kembali ke Dashboard"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Volume Kubus"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
+            <EditText
+                android:id="@+id/etSisi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Masukkan Sisi"
+                android:inputType="numberDecimal" />
+
+            <Button
+                android:id="@+id/btnHitungVolume"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Hitung Volume" />
+
+            <TextView
+                android:id="@+id/tvHasilVolume"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Hasil Volume: 0"
+                android:textSize="16sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnBackToDashboard"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/button_bg"
+                android:text="Kembali ke Dashboard"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
-</ScrollView>

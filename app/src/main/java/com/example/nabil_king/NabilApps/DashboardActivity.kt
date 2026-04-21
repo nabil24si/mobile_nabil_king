@@ -1,4 +1,4 @@
-package NabilApps
+package com.example.nabil_king.NabilApps
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,9 +8,12 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.nabil_king.LoginActivity
 import com.example.nabil_king.MainActivity
 import com.example.nabil_king.databinding.ActivityDashboardBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import androidx.core.content.edit
 
 class DashboardActivity : AppCompatActivity() {
 
@@ -30,10 +33,15 @@ class DashboardActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
 
         // --- Navigasi Ke Halaman Lain ---
         binding.btnRuang.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
+        }
+
+        binding.btnBina.setOnClickListener {
+            startActivity(Intent(this, PageThreeActivity::class.java))
         }
 
         binding.btnInfo.setOnClickListener {
@@ -46,33 +54,29 @@ class DashboardActivity : AppCompatActivity() {
 
         // --- Logika Logout dengan AlertDialog & Snackbar ---
         binding.btnLogout.setOnClickListener {
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle("Konfirmasi Logout")
-            builder.setMessage("Apakah Anda yakin ingin keluar dari aplikasi?")
+            MaterialAlertDialogBuilder(this)
+                .setTitle("Konfirmasi")
+                .setMessage("Apakah Anda yakin ingin melanjutkan?")
+                .setPositiveButton("Ya") { dialog, _ ->
+                    sharedPref.edit {
+                        clear()
+                    }
 
-            // Jika klik YA
-            builder.setPositiveButton("Iya") { _, _ ->
-                val intent = Intent(this, LoginActivity::class.java)
-                // Clear stack agar user tidak bisa back lagi ke dashboard setelah logout
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(intent)
+                    dialog.dismiss()
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                }
+                .setNegativeButton("Batal") { dialog, _ ->
+                    dialog.dismiss()
+                    Log.e("Info Dialog","Anda memilih Tidak!")
+                }
+                .show()
 
-            }
-
-            // Jika klik TIDAK
-            builder.setNegativeButton("Tidak") { dialog, _ ->
-                dialog.dismiss()
-                // Menampilkan Snackbar
-                Snackbar.make(binding.mainDashboard, "Logout dibatalkan", Snackbar.LENGTH_SHORT).show()
-            }
-
-            val alertDialog = builder.create()
-            alertDialog.show()
         }
 
         // --- Ambil Data Dari Intent ---
         val namaDariLogin = intent.getStringExtra("username")
-        binding.tvWelcome.text = if (namaDariLogin != null) "Welcome, $namaDariLogin" else "Welcome, Guest"
+        binding.tvWelcome.text = if (namaDariLogin != null) "Welcome, $namaDariLogin" else "Welcome To Dashboard"
     }
 
     override fun onStart() {
