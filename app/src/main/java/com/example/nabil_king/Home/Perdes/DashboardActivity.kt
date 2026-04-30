@@ -1,10 +1,9 @@
-package com.example.nabil_king.NabilApps
+package com.example.nabil_king.Home.Perdes
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -12,7 +11,6 @@ import com.example.nabil_king.LoginActivity
 import com.example.nabil_king.MainActivity
 import com.example.nabil_king.databinding.ActivityDashboardBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.snackbar.Snackbar
 import androidx.core.content.edit
 
 class DashboardActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.example.nabil_king.NabilApps
+package com.example.nabil_king.Home.Perdes
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,72 +8,65 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.nabil_king.R
-import com.example.nabil_king.databinding.ActivityPageoneBinding
+import com.example.nabil_king.databinding.ActivityPagetwoBinding
 
-class PageoneActivity : AppCompatActivity() {
+class PagetwoActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityPageoneBinding
-    private val TAG = "PageoneLifecycle"
+    private lateinit var binding: ActivityPagetwoBinding
+    private val TAG = "PagetwoLifecycle"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(TAG, "onCreate: Halaman Informasi Dibuat")
+        Log.d(TAG, "onCreate: Memuat Profil Pengembang")
 
-        binding = ActivityPageoneBinding.inflate(layoutInflater)
+        binding = ActivityPagetwoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 1. SETUP TOOLBAR
-        // Pastikan ID di XML adalah android:id="@+id/toolbarInfo"
-        setSupportActionBar(binding.toolbarInfo)
-
-        // 2. AKTIFKAN TOMBOL BACK DI TOOLBAR
+        setSupportActionBar(binding.toolbarDev)
         supportActionBar?.apply {
-            title = "Informasi Detail"
+            title = "Profil Pengembang"
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
 
-        // Tombol Kembali di bawah (Button XML)
-        binding.btnBack.setOnClickListener {
+        // Klik tombol kembali di bagian bawah
+        binding.btnBackFromDev.setOnClickListener {
             finish()
         }
     }
 
+    // 3. MEMASANG MENU (Option Menu)
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_latihan, menu)
         return true
     }
 
+    // 4. LOGIKA KLIK MENU & TOMBOL BACK TOOLBAR
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            // Perbaikan Logika Share (Karena tidak ada WebView, kita share teks manual)
+            android.R.id.home -> {
+                finish() // Tombol Back di Toolbar
+                true
+            }
             R.id.action_share -> {
+                // Improvisasi: Share Profil Pengembang
                 val shareIntent = Intent(Intent.ACTION_SEND).apply {
                     type = "text/plain"
-                    putExtra(Intent.EXTRA_TEXT, "Cek aplikasi KindStep: Solusi transisi dunia sekolah anak!")
+                    val profilInfo = "Kenalan yuk sama Pengembang KindStep! Aplikasi ini dibuat dengan dedikasi untuk edukasi anak."
+                    putExtra(Intent.EXTRA_TEXT, profilInfo)
                 }
-                startActivity(Intent.createChooser(shareIntent, "Bagikan via"))
+                startActivity(Intent.createChooser(shareIntent, "Bagikan Profil"))
                 true
             }
-            // Perbaikan: Karena tidak ada WebView, fitur refresh bisa diganti Toast atau dihapus
             R.id.sub_refresh -> {
-                Toast.makeText(this, "Halaman diperbarui", Toast.LENGTH_SHORT).show()
-                true
-            }
-            android.R.id.home -> {
-                finish()
+                Toast.makeText(this, "Profil telah diperbarui", Toast.LENGTH_SHORT).show()
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-    // Perbaikan onBackPressed: Hapus logika WebView karena di XML tidak ada WebView
-    @Suppress("DEPRECATION")
-    override fun onBackPressed() {
-        super.onBackPressed()
-    }
-
+    // --- Lifecycle Monitoring Tetap Dipertahankan ---
     override fun onStart() { super.onStart(); Log.d(TAG, "onStart") }
     override fun onResume() { super.onResume(); Log.d(TAG, "onResume") }
     override fun onPause() { super.onPause(); Log.d(TAG, "onPause") }

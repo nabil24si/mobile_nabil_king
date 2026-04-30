@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.nabil_king.NabilApps.DashboardActivity
+import com.example.nabil_king.Home.Perdes.DashboardActivity
 import com.example.nabil_king.databinding.ActivityLoginBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
@@ -51,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
                     putString("username", username)
                 }
                 Toast.makeText(this, " $username Login Anda Berhasil !", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, DashboardActivity::class.java)
+                val intent = Intent(this, BaseActivity::class.java)
                 intent.putExtra("username", binding.username.text.toString()) // Kuncinya adalah "username"
                 startActivity(intent)
             } else {

@@ -1,6 +1,5 @@
 package com.example.nabil_king
 
-import android.R.attr.delay
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -8,10 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import com.example.nabil_king.NabilApps.DashboardActivity
+import com.example.nabil_king.Home.HomeFragment
+import com.example.nabil_king.Home.Perdes.DashboardActivity
 import kotlinx.coroutines.delay
+
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.time.delay
 
 class SplashScreenActivity : AppCompatActivity() {
     private class binding
@@ -29,7 +29,7 @@ class SplashScreenActivity : AppCompatActivity() {
         //Kondisi jika isLogin bernilai true
         val isLogin = sharedPref.getBoolean("isLogin", false)
         if (isLogin) {
-            val intent = Intent(this, DashboardActivity::class.java)
+            val intent = Intent(this, BaseActivity::class.java)
             startActivity(intent)
             finish()//kill auth activity
         }

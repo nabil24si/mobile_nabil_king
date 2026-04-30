@@ -1,4 +1,4 @@
-package com.example.nabil_king.NabilApps
+package com.example.nabil_king.Home.Perdes
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,10 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.webkit.WebViewClient
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.nabil_king.R
 import com.example.nabil_king.databinding.ActivityPageThreeBinding
 
