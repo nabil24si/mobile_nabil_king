@@ -14,5 +14,9 @@
         android:id="@+id/profile"
         android:icon="@drawable/profile"
         android:title="Profile" />
+    <item
+        android:id="@+id/warga"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="Data Warga" />
 
 </menu>

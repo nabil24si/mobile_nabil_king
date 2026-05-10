@@ -105,77 +105,104 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="16dp">
 
-            <RelativeLayout
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Pilih Layanan Perdes"
+                android:textColor="#59C1C9"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <androidx.gridlayout.widget.GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp">
+                app:columnCount="2"
+                app:useDefaultMargins="true">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="Pilih Materi/Informasi"
-                    android:textColor="#59C1C9"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRuang"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:text="Bangun\nRuang"
+                    android:textAllCaps="false"
+                    android:textColor="#333333"
+                    app:icon="@android:drawable/ic_menu_agenda"
+                    app:iconGravity="top"
+                    app:iconSize="32dp"
+                    app:iconTint="#59C1C9"
+                    app:layout_columnWeight="1"
+                    app:backgroundTint="#F0F9FA"
+                    app:cornerRadius="12dp" />
 
-                <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:layout_alignParentEnd="true"
-                    android:src="@android:drawable/ic_menu_sort_by_size"
-                    app:tint="#59C1C9" />
-            </RelativeLayout>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBina"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:text="Bina\nDesa"
+                    android:textAllCaps="false"
+                    android:textColor="#333333"
+                    app:icon="@android:drawable/ic_menu_mylocation"
+                    app:iconGravity="top"
+                    app:iconSize="32dp"
+                    app:iconTint="#59C1C9"
+                    app:layout_columnWeight="1"
+                    app:backgroundTint="#F0F9FA"
+                    app:cornerRadius="12dp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnRuang"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/button_bg"
-                android:text="Halaman Bangun Ruang"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDataWarga"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:text="Data\nWarga"
+                    android:textAllCaps="false"
+                    android:textColor="#333333"
+                    app:icon="@android:drawable/ic_menu_myplaces"
+                    app:iconGravity="top"
+                    app:iconSize="32dp"
+                    app:iconTint="#59C1C9"
+                    app:layout_columnWeight="1"
+                    app:backgroundTint="#F0F9FA"
+                    app:cornerRadius="12dp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnBina"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/button_bg"
-                android:text="Halaman Bina Desa"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnInfo"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:text="Info\nApp"
+                    android:textAllCaps="false"
+                    android:textColor="#333333"
+                    app:icon="@android:drawable/ic_dialog_info"
+                    app:iconGravity="top"
+                    app:iconSize="32dp"
+                    app:iconTint="#59C1C9"
+                    app:layout_columnWeight="1"
+                    app:backgroundTint="#F0F9FA"
+                    app:cornerRadius="12dp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnInfo"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/button_bg"
-                android:text="Informasi Aplikasi"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDeveloper"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:text="Profil\nDev"
+                    android:textAllCaps="false"
+                    android:textColor="#333333"
+                    app:icon="@android:drawable/ic_menu_view"
+                    app:iconGravity="top"
+                    app:iconSize="32dp"
+                    app:iconTint="#59C1C9"
+                    app:layout_columnWeight="1"
+                    app:backgroundTint="#F0F9FA"
+                    app:cornerRadius="12dp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnDeveloper"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:background="@drawable/button_bg"
-                android:text="Profil Pengembang"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
+            </androidx.gridlayout.widget.GridLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

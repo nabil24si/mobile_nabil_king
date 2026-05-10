@@ -8,7 +8,9 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.nabil_king.About.AboutFragment
 import com.example.nabil_king.Home.HomeFragment
+//import com.example.nabil_king.Warga.DataWargaFragment
 import com.example.nabil_king.Profile.ProfileFragment
+import com.example.nabil_king.Warga.DataWargaFragment
 import com.example.nabil_king.databinding.ActivityBaseBinding
 
 class BaseActivity : AppCompatActivity() {
@@ -37,6 +39,10 @@ class BaseActivity : AppCompatActivity() {
                 }
                 R.id.profile -> {
                     replaceFragment(ProfileFragment())
+                    true
+                }
+                R.id.warga -> {
+                    replaceFragment(DataWargaFragment())
                     true
                 }
                 else -> false // return false jika item tidak ada yang di klik

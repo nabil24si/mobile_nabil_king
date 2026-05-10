@@ -1,6 +1,5 @@
 package com.example.nabil_king.Home
 
-import android.content.ContentValues.TAG
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.os.Bundle
@@ -9,15 +8,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.Toast
 import androidx.core.content.edit
 import com.example.nabil_king.Home.Perdes.PageThreeActivity
 import com.example.nabil_king.Home.Perdes.PageoneActivity
 import com.example.nabil_king.Home.Perdes.PagetwoActivity
+import com.example.nabil_king.Warga.DataWargaFragment
 import com.example.nabil_king.LoginActivity
 import com.example.nabil_king.MainActivity
+import com.example.nabil_king.Profile.ProfileFragment
 import com.example.nabil_king.R
 import com.example.nabil_king.databinding.FragmentHomeBinding
+import com.google.android.material.chip.Chip
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class HomeFragment : Fragment() {
@@ -37,7 +39,7 @@ class HomeFragment : Fragment() {
 
         val sharedPref = requireContext().getSharedPreferences("user_pref", MODE_PRIVATE)
 
-        // --- Navigasi Ke Halaman Lain ---
+        // --- Navigasi Ke Halaman Lain (GridLayout Menu) ---
         binding.btnRuang.setOnClickListener {
             startActivity(Intent(requireContext(), MainActivity::class.java))
         }
@@ -46,8 +48,9 @@ class HomeFragment : Fragment() {
             startActivity(Intent(requireContext(), PageThreeActivity::class.java))
         }
 
+
         binding.btnInfo.setOnClickListener {
-            startActivity(Intent(requireContext(), PageoneActivity::class.java))
+            startActivity(Intent(requireContext(), ProfileFragment::class.java))
         }
 
         binding.btnDeveloper.setOnClickListener {
@@ -63,7 +66,7 @@ class HomeFragment : Fragment() {
                     sharedPref.edit { clear() }
                     dialog.dismiss()
                     startActivity(Intent(requireContext(), LoginActivity::class.java))
-                    requireActivity().finish() // Agar tidak bisa back ke Home lagi
+                    requireActivity().finish()
                 }
                 .setNegativeButton("Batal") { dialog, _ ->
                     dialog.dismiss()
@@ -84,6 +87,6 @@ class HomeFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null // Penting untuk menghindari memory leak di Fragment
+        _binding = null
     }
 }
