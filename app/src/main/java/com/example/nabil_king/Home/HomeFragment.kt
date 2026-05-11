@@ -57,6 +57,13 @@ class HomeFragment : Fragment() {
             startActivity(Intent(requireContext(), PagetwoActivity::class.java))
         }
 
+        binding.btnDataWarga.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, DataWargaFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
         // --- Logika Logout ---
         binding.btnLogout.setOnClickListener {
             MaterialAlertDialogBuilder(requireContext())

@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Nabilking">
         <activity
+            android:name=".ValidationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".BaseActivity"
             android:exported="false" />
         <activity
@@ -33,10 +39,9 @@
             android:exported="false" />
         <activity
             android:name=".Home.Perdes.PageoneActivity"
-            android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".Home.Perdes.DashboardActivity"-->
-<!--            android:exported="false" />-->
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".Home.Perdes.DashboardActivity" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
