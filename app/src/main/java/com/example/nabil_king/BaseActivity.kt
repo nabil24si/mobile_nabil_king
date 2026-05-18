@@ -10,7 +10,7 @@ import com.example.nabil_king.About.AboutFragment
 import com.example.nabil_king.Home.HomeFragment
 //import com.example.nabil_king.Warga.DataWargaFragment
 import com.example.nabil_king.Profile.ProfileFragment
-import com.example.nabil_king.Warga.DataWargaFragment
+import com.example.nabil_king.Home.Layanan.Warga.DataWargaFragment
 import com.example.nabil_king.databinding.ActivityBaseBinding
 
 class BaseActivity : AppCompatActivity() {

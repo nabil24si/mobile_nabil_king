@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeColor="#E2E8F0"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivImagePersil"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:scaleType="centerCrop"
+            android:src="@android:drawable/ic_menu_gallery" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivImageDummy"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_report_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/CircleImage" />
+
+            <TextView
+                android:id="@+id/tvKodePersil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="KODE001"
+                android:textColor="#0284C7"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/ivImageDummy"
+                app:layout_constraintTop_toTopOf="@id/ivImageDummy" />
+
+            <TextView
+                android:id="@+id/tvRtRw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RT/RW: 001/002"
+                android:textColor="#64748B"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvKodePersil" />
+
+            <TextView
+                android:id="@+id/tvPemilik"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Nama Pemilik"
+                android:textColor="#1E293B"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tvKodePersil"
+                app:layout_constraintTop_toBottomOf="@id/tvKodePersil" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:background="#E2E8F0"
+                app:layout_constraintTop_toBottomOf="@id/ivImageDummy" />
+
+            <TextView
+                android:id="@+id/lblLuas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Luas:"
+                android:textColor="#64748B"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider" />
+
+            <TextView
+                android:id="@+id/tvLuas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="20.00 m²"
+                android:textColor="#1E293B"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/lblLuas"
+                app:layout_constraintTop_toTopOf="@id/lblLuas" />
+
+            <TextView
+                android:id="@+id/tvPenggunaan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Hutan Lindung - Blok 011"
+                android:textColor="#0F766E"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textAlignment="viewEnd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvLuas"
+                app:layout_constraintTop_toTopOf="@id/lblLuas" />
+
+            <TextView
+                android:id="@+id/tvAlamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Alamat: Jl. Sekolah"
+                android:textColor="#475569"
+                android:textSize="12sp"
+                app:layout_constraintTop_toBottomOf="@id/lblLuas" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

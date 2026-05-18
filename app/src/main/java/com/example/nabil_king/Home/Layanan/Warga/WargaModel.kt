@@ -1,4 +1,4 @@
-package com.example.nabil_king.Warga
+package com.example.nabil_king.Home.Layanan.Warga
 
 data class WargaModel
     (val nama: String,

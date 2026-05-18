@@ -8,18 +8,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.edit
+import com.example.nabil_king.Home.Layanan.LayananActivity
 import com.example.nabil_king.Home.Perdes.PageThreeActivity
-import com.example.nabil_king.Home.Perdes.PageoneActivity
 import com.example.nabil_king.Home.Perdes.PagetwoActivity
-import com.example.nabil_king.Warga.DataWargaFragment
+import com.example.nabil_king.Home.Layanan.Warga.DataWargaFragment
 import com.example.nabil_king.LoginActivity
 import com.example.nabil_king.MainActivity
 import com.example.nabil_king.Profile.ProfileFragment
 import com.example.nabil_king.R
 import com.example.nabil_king.databinding.FragmentHomeBinding
-import com.google.android.material.chip.Chip
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class HomeFragment : Fragment() {
@@ -55,6 +53,10 @@ class HomeFragment : Fragment() {
 
         binding.btnDeveloper.setOnClickListener {
             startActivity(Intent(requireContext(), PagetwoActivity::class.java))
+        }
+
+        binding.btnLayanan.setOnClickListener {
+            startActivity(Intent(requireContext(), LayananActivity::class.java))
         }
 
         binding.btnDataWarga.setOnClickListener {

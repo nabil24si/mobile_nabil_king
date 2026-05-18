@@ -1,4 +1,4 @@
-package com.example.nabil_king.Warga
+package com.example.nabil_king.Home.Layanan.Warga
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import com.example.nabil_king.R
 import com.example.nabil_king.databinding.ItemWargaBinding
 
 class WargaAdapter(context: Context, private val listWarga: List<WargaModel>)
-    : android.widget.ArrayAdapter<WargaModel>(context, 0, listWarga) {
+    : ArrayAdapter<WargaModel>(context, 0, listWarga) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         // Gunakan ViewBinding dengan cara yang paling simpel
