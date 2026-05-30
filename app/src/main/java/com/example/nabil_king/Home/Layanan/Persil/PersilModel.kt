@@ -1,4 +1,4 @@
-package com.example.nabil_king.Home.Layanan
+package com.example.nabil_king.Home.Layanan.Persil
 
 data class PersilModel(
     val kodePersil: String,

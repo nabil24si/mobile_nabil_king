@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.nabil_king.Home.HomeFragment
 import com.example.nabil_king.Home.Perdes.DashboardActivity
+import com.example.nabil_king.Home.tutorial.TutorialActivity
 import kotlinx.coroutines.delay
 
 import kotlinx.coroutines.launch
@@ -36,7 +37,7 @@ class SplashScreenActivity : AppCompatActivity() {
         lifecycleScope.launch {
             delay(2000) //simulasi pengambilan data selama 2 detik
 
-            var intent = Intent(this@SplashScreenActivity, LoginActivity::class.java)
+            var intent = Intent(this@SplashScreenActivity, TutorialActivity::class.java)
             startActivity(intent)
             finish()
         }

@@ -3,7 +3,7 @@ package com.example.nabil_king.Home.Layanan
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-
+import com.example.nabil_king.Home.Layanan.Persil.DataPersilFragment
 import com.example.nabil_king.Home.Layanan.Warga.DataWargaFragment
 
 class TabsAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {

@@ -5,8 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0F766E" tools:context=".Home.HomeFragment">
+    android:background="#0F766E"
+    tools:context=".Home.HomeFragment">
 
+    <!-- Header Area -->
     <View
         android:id="@+id/headerView"
         android:layout_width="match_parent"
@@ -14,12 +16,13 @@
         android:background="@drawable/header_bg"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- User Section -->
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/profileImage"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="45dp"
         android:padding="2dp"
         android:src="@drawable/pro"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,6 +32,7 @@
         app:strokeWidth="2dp" />
 
     <LinearLayout
+        android:id="@+id/userContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -72,18 +76,19 @@
         app:layout_constraintTop_toTopOf="@+id/profileImage"
         app:tint="#FFFFFF" />
 
+    <!-- Content Area: Background diletakkan di NestedScrollView agar area putih memenuhi layar -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:fillViewport="true"
         android:layout_marginTop="140dp"
+        android:background="@drawable/bg_content_bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_content_bottom"
             android:orientation="vertical"
             android:padding="24dp">
 
@@ -106,6 +111,7 @@
                 android:textColor="#64748B"
                 android:textSize="13sp" />
 
+            <!-- Grid Menu 6 Tombol -->
             <androidx.gridlayout.widget.GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -207,7 +213,7 @@
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="0dp"
                     android:layout_height="64dp"
-                    android:text="Tentang Pengembang / Profil Dev"
+                    android:text="Profil Pengembang"
                     android:textAllCaps="false"
                     android:textColor="#1E293B"
                     android:textSize="13sp"
@@ -222,6 +228,28 @@
                     app:cornerRadius="16dp" />
 
             </androidx.gridlayout.widget.GridLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Galeri Kegiatan"
+                android:textColor="#0F766E"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvGallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:nestedScrollingEnabled="false"
+                tools:listitem="@layout/item_photo" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp" />
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

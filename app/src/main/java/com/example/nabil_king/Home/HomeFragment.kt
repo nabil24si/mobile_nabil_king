@@ -8,17 +8,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.edit
-import com.example.nabil_king.Home.Layanan.LayananActivity
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.nabil_king.Home.Layanan.Persil.DataPersilFragment
+import com.example.nabil_king.Home.Layanan.Warga.DataWargaFragment
 import com.example.nabil_king.Home.Perdes.PageThreeActivity
 import com.example.nabil_king.Home.Perdes.PagetwoActivity
-import com.example.nabil_king.Home.Layanan.Warga.DataWargaFragment
+import com.example.nabil_king.Home.photo.PhotoAdapter
 import com.example.nabil_king.LoginActivity
 import com.example.nabil_king.MainActivity
 import com.example.nabil_king.Profile.ProfileFragment
 import com.example.nabil_king.R
+import com.example.nabil_king.data.api.PhotoApiClient
 import com.example.nabil_king.databinding.FragmentHomeBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -37,7 +43,6 @@ class HomeFragment : Fragment() {
 
         val sharedPref = requireContext().getSharedPreferences("user_pref", MODE_PRIVATE)
 
-        // --- Navigasi Ke Halaman Lain (GridLayout Menu) ---
         binding.btnRuang.setOnClickListener {
             startActivity(Intent(requireContext(), MainActivity::class.java))
         }
@@ -46,27 +51,32 @@ class HomeFragment : Fragment() {
             startActivity(Intent(requireContext(), PageThreeActivity::class.java))
         }
 
-
         binding.btnInfo.setOnClickListener {
-            startActivity(Intent(requireContext(), ProfileFragment::class.java))
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, ProfileFragment())
+                .addToBackStack(null)
+                .commit()
         }
 
         binding.btnDeveloper.setOnClickListener {
             startActivity(Intent(requireContext(), PagetwoActivity::class.java))
         }
 
+        // Navigasi tombol layanan ke DataPersilFragment
         binding.btnLayanan.setOnClickListener {
-            startActivity(Intent(requireContext(), LayananActivity::class.java))
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, DataPersilFragment())
+                .addToBackStack(null)
+                .commit()
         }
 
         binding.btnDataWarga.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
+            parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, DataWargaFragment())
                 .addToBackStack(null)
                 .commit()
         }
 
-        // --- Logika Logout ---
         binding.btnLogout.setOnClickListener {
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Konfirmasi")
@@ -83,16 +93,28 @@ class HomeFragment : Fragment() {
                 .show()
         }
 
-        // --- FIXED: Ambil Data Dari Intent ---
         val intent = requireActivity().intent
         val namaDariLogin = intent.getStringExtra("username")
         binding.tvWelcome.text = if (!namaDariLogin.isNullOrEmpty()) "Welcome, $namaDariLogin" else "Welcome To Dashboard"
+
+        loadPhoto()
     }
 
-    override fun onStart() {
-        super.onStart()
-        Log.d("HomeFragment", "onStart: Dashboard Mulai Terlihat")
+    private fun loadPhoto() {
+        lifecycleScope.launch {
+            try {
+                val photos = PhotoApiClient.apiService.getPhotos()
+                val adapter = PhotoAdapter(photos)
+                binding.rvGallery.adapter = adapter
+                /** List Tampil Horizontal */
+                binding.rvGallery.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), "Gagal memuat gambar", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
