@@ -1,0 +1,26 @@
+# Task Management
+
+- [ ] Update project configuration and dependencies
+    - [ ] Update `libs.versions.toml`
+    - [ ] Update `app/build.gradle.kts`
+    - [ ] Define colors in `colors.xml`
+- [ ] Implement Data Layer (Room)
+    - [ ] Create `SengketaEntity`
+    - [ ] Create `SengketaDao`
+    - [ ] Update `AppDatabase`
+- [ ] Implement Scanner Utility
+    - [ ] Create `ScannerActivity` with CameraX and ML Kit
+- [ ] Implement Notification Utility
+    - [ ] Create `NotificationHelper`
+- [ ] Implement "Sengketa" Feature
+    - [ ] Create `DataSengketaFragment`
+    - [ ] Create `SengketaAdapter`
+    - [ ] Create `AddSengketaActivity` with Scanner integration
+- [ ] Implement "Peta Persil" Feature
+    - [ ] Create `PetaPersilFragment`
+- [ ] Integrate into Layanan Tabs
+    - [ ] Update `TabsAdapter`
+    - [ ] Update `LayananActivity`
+- [ ] Verification
+    - [ ] Run build
+    - [ ] Manual test of all new features

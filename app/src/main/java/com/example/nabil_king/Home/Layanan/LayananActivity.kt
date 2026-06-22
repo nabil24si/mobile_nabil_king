@@ -43,6 +43,8 @@ class LayananActivity : AppCompatActivity() {
             when (position) {
                 0 -> tab.text = "Warga"
                 1 -> tab.text = "Persil"
+                2 -> tab.text = "Sengketa"
+                3 -> tab.text = "Peta"
             }
         }.attach()
     }

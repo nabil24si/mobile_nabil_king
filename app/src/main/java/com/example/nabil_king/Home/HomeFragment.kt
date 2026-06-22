@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.core.content.edit
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.nabil_king.Home.Layanan.LayananActivity
 import com.example.nabil_king.Home.Layanan.Persil.DataPersilFragment
 import com.example.nabil_king.Home.Layanan.Warga.DataWargaFragment
 import com.example.nabil_king.Home.Perdes.PageThreeActivity
@@ -64,10 +65,7 @@ class HomeFragment : Fragment() {
 
         // Navigasi tombol layanan ke DataPersilFragment
         binding.btnLayanan.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, DataPersilFragment())
-                .addToBackStack(null)
-                .commit()
+            startActivity(Intent(requireContext(), LayananActivity::class.java))
         }
 
         binding.btnDataWarga.setOnClickListener {

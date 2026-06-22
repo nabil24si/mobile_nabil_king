@@ -6,18 +6,21 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.nabil_king.data.dao.DraftDao
 import com.example.nabil_king.data.dao.NoteDao
+import com.example.nabil_king.data.dao.SengketaDao
 import com.example.nabil_king.data.entity.DraftEntity
 import com.example.nabil_king.data.entity.NoteEntity
+import com.example.nabil_king.data.entity.SengketaEntity
 
 @Database(
-    entities = [NoteEntity::class, DraftEntity::class],
-    version = 2,
+    entities = [NoteEntity::class, DraftEntity::class, SengketaEntity::class],
+    version = 3,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun noteDao(): NoteDao
     abstract fun draftDao(): DraftDao
+    abstract fun sengketaDao(): SengketaDao
 
     companion object {
         @Volatile private var INSTANCE: AppDatabase? = null
