@@ -45,6 +45,10 @@ class BaseActivity : AppCompatActivity() {
                     replaceFragment(DataWargaFragment())
                     true
                 }
+                R.id.notes -> {
+                    replaceFragment(com.example.nabil_king.Note.NoteFragment())
+                    true
+                }
                 else -> false // return false jika item tidak ada yang di klik
             }
         }

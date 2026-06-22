@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.nabil_king.Home.HomeFragment
+import androidx.core.content.edit
 import com.example.nabil_king.databinding.ActivityValidationBinding
 
 class ValidationActivity : AppCompatActivity() {
@@ -56,6 +56,15 @@ class ValidationActivity : AppCompatActivity() {
     }
 
     private fun showSuccessDialog() {
+        // Set isLogin to true in user_pref
+        val sharedPrefLogin = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
+        val username = getSharedPreferences("UserReg", Context.MODE_PRIVATE).getString("username", "")
+        
+        sharedPrefLogin.edit {
+            putBoolean("isLogin", true)
+            putString("username", username)
+        }
+
         AlertDialog.Builder(this)
             .setTitle("Informasi")
             .setMessage("Registrasi Berhasil")

@@ -15,7 +15,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class SplashScreenActivity : AppCompatActivity() {
-    private class binding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -29,15 +28,15 @@ class SplashScreenActivity : AppCompatActivity() {
 
         //Kondisi jika isLogin bernilai true
         val isLogin = sharedPref.getBoolean("isLogin", false)
-        if (isLogin) {
-            val intent = Intent(this, BaseActivity::class.java)
-            startActivity(intent)
-            finish()//kill auth activity
-        }
+        
         lifecycleScope.launch {
             delay(2000) //simulasi pengambilan data selama 2 detik
-
-            var intent = Intent(this@SplashScreenActivity, TutorialActivity::class.java)
+            
+            val intent = if (isLogin) {
+                Intent(this@SplashScreenActivity, BaseActivity::class.java)
+            } else {
+                Intent(this@SplashScreenActivity, TutorialActivity::class.java)
+            }
             startActivity(intent)
             finish()
         }

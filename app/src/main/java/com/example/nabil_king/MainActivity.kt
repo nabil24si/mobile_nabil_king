@@ -7,17 +7,16 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.nabil_king.R
 import com.example.nabil_king.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val TAG = "MainBangunLifecycle"
+    private val tag = "MainBangunLifecycle"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(TAG, "onCreate: Activity Bangun Datar/Ruang Dibuat")
+        Log.d(tag, "onCreate: Activity Bangun Datar/Ruang Dibuat")
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -38,14 +37,14 @@ class MainActivity : AppCompatActivity() {
             val panjang = binding.etPanjang.text.toString().toDoubleOrNull() ?: 0.0
             val lebar = binding.etLebar.text.toString().toDoubleOrNull() ?: 0.0
             val hasil = panjang * lebar
-            binding.tvHasilLuas.text = "Hasil Luas: $hasil"
+            binding.tvHasilLuas.text = getString(R.string.hasil_luas, hasil.toString())
         }
 
         // --- Logika Hitung Volume Kubus ---
         binding.btnHitungVolume.setOnClickListener {
             val sisi = binding.etSisi.text.toString().toDoubleOrNull() ?: 0.0
             val hasil = sisi * sisi * sisi
-            binding.tvHasilVolume.text = "Hasil Volume: $hasil"
+            binding.tvHasilVolume.text = getString(R.string.hasil_volume, hasil.toString())
         }
 
         // --- Tombol Kembali ke Dashboard (Button di bawah) ---
@@ -91,9 +90,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Lifecycle tetap dipertahankan
-    override fun onStart() { super.onStart(); Log.d(TAG, "onStart") }
-    override fun onResume() { super.onResume(); Log.d(TAG, "onResume") }
-    override fun onPause() { super.onPause(); Log.d(TAG, "onPause") }
-    override fun onStop() { super.onStop(); Log.d(TAG, "onStop") }
-    override fun onDestroy() { super.onDestroy(); Log.d(TAG, "onDestroy") }
+    override fun onStart() { super.onStart(); Log.d(tag, "onStart") }
+    override fun onResume() { super.onResume(); Log.d(tag, "onResume") }
+    override fun onPause() { super.onPause(); Log.d(tag, "onPause") }
+    override fun onStop() { super.onStop(); Log.d(tag, "onStop") }
+    override fun onDestroy() { super.onDestroy(); Log.d(tag, "onDestroy") }
 }

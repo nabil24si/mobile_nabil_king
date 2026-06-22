@@ -24,7 +24,7 @@
             android:name=".Home.tutorial.TutorialActivity"
             android:exported="false" />
         <activity
-            android:name=".Home.tutorial.TutorialActivity"
+            android:name=".Note.NoteFormActivity"
             android:exported="false" />
         <activity
             android:name=".ValidationActivity"
