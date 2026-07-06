@@ -9,7 +9,7 @@ import com.example.nabil_king.R
 
 class NotificationHelper(private val context: Context) {
 
-    private val channelId = "sengketa_channel"
+    private val channelId = "reminder_channel"
     private val notificationManager =
         context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
@@ -19,9 +19,9 @@ class NotificationHelper(private val context: Context) {
 
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "Notifikasi Sengketa"
-            val descriptionText = "Notifikasi saat ada penambahan data sengketa baru"
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val name = "Reminder Sengketa"
+            val descriptionText = "Channel untuk pengingat tindak lanjut sengketa"
+            val importance = NotificationManager.IMPORTANCE_HIGH
             val channel = NotificationChannel(channelId, name, importance).apply {
                 description = descriptionText
             }
@@ -29,12 +29,13 @@ class NotificationHelper(private val context: Context) {
         }
     }
 
-    fun sendSengketaNotification(title: String, message: String) {
+    fun sendNotification(title: String, message: String) {
         val builder = NotificationCompat.Builder(context, channelId)
-            .setSmallIcon(R.drawable.ic_layanan_cepat) // Menggunakan icon yang tersedia
+            .setSmallIcon(R.drawable.ic_layanan_cepat)
             .setContentTitle(title)
             .setContentText(message)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setDefaults(NotificationCompat.DEFAULT_ALL) // Tambahkan suara dan getar default
             .setAutoCancel(true)
 
         notificationManager.notify(System.currentTimeMillis().toInt(), builder.build())

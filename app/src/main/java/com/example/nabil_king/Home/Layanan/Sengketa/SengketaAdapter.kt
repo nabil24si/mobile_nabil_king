@@ -12,7 +12,8 @@ import java.util.*
 
 class SengketaAdapter(
     private var sengketaList: List<SengketaEntity>,
-    private val onItemClick: (SengketaEntity) -> Unit
+    private val onEditClick: (SengketaEntity) -> Unit,
+    private val onDeleteClick: (SengketaEntity) -> Unit
 ) : RecyclerView.Adapter<SengketaAdapter.SengketaViewHolder>() {
 
     inner class SengketaViewHolder(val binding: ItemSengketaBinding) : RecyclerView.ViewHolder(binding.root)
@@ -40,7 +41,8 @@ class SengketaAdapter(
                 tvStatus.backgroundTintList = ContextCompat.getColorStateList(holder.itemView.context, R.color.status_dispute_pending)
             }
 
-            root.setOnClickListener { onItemClick(item) }
+            btnEdit.setOnClickListener { onEditClick(item) }
+            btnDelete.setOnClickListener { onDeleteClick(item) }
         }
     }
 

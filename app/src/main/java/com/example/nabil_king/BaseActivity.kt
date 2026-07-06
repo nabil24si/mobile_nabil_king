@@ -41,10 +41,7 @@ class BaseActivity : AppCompatActivity() {
                     replaceFragment(ProfileFragment())
                     true
                 }
-                R.id.warga -> {
-                    replaceFragment(DataWargaFragment())
-                    true
-                }
+
                 R.id.notes -> {
                     replaceFragment(com.example.nabil_king.Note.NoteFragment())
                     true

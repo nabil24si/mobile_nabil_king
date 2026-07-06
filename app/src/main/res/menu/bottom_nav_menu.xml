@@ -14,10 +14,6 @@
         android:id="@+id/profile"
         android:icon="@drawable/profile"
         android:title="@string/menu_profile" />
-    <item
-        android:id="@+id/warga"
-        android:icon="@android:drawable/ic_menu_agenda"
-        android:title="@string/menu_warga" />
 
     <item
         android:id="@+id/notes"

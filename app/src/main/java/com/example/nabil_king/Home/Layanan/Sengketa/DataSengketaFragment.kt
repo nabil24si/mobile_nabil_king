@@ -36,9 +36,28 @@ class DataSengketaFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        adapter = SengketaAdapter(emptyList()) { sengketa ->
-            // Detail logic or delete logic could go here
-        }
+        adapter = SengketaAdapter(
+            emptyList(),
+            onEditClick = { sengketa ->
+                val intent = Intent(requireContext(), AddSengketaActivity::class.java).apply {
+                    putExtra("SENGKETA_ID", sengketa.id)
+                }
+                startActivity(intent)
+            },
+            onDeleteClick = { sengketa ->
+                com.google.android.material.dialog.MaterialAlertDialogBuilder(requireContext())
+                    .setTitle("Hapus Data")
+                    .setMessage("Apakah Anda yakin ingin menghapus sengketa ini?")
+                    .setPositiveButton("Hapus") { _, _ ->
+                        lifecycleScope.launch {
+                            db.sengketaDao().delete(sengketa)
+                            fetchData()
+                        }
+                    }
+                    .setNegativeButton("Batal", null)
+                    .show()
+            }
+        )
         binding.rvSengketa.layoutManager = LinearLayoutManager(requireContext())
         binding.rvSengketa.adapter = adapter
     }

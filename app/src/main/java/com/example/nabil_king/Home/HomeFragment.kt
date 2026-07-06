@@ -82,7 +82,8 @@ class HomeFragment : Fragment() {
                 .setPositiveButton("Ya") { dialog, _ ->
                     sharedPref.edit { clear() }
                     dialog.dismiss()
-                    startActivity(Intent(requireContext(), LoginActivity::class.java))
+                    startActivity(Intent(requireContext(),
+                        LoginActivity::class.java))
                     requireActivity().finish()
                 }
                 .setNegativeButton("Batal") { dialog, _ ->
